@@ -4,7 +4,7 @@
 
 // setting up array of animals 
 
-var aniamls = [];
+var aniamls = ["Dog", "Cat", "Owl", "Llama", "Goat", "chinchilla"];
 
 //once document has been loaded, do the following:
 
