@@ -1,17 +1,35 @@
 // pseudo code 
 
+//link documents 
+
+console.log("we are linked!");
+
 //get document ready 
 
-// setting up array of animals 
+$(document).ready(function() {
+    console.log("I'm reeaaady!")
+    // setting up array of animals 
 
-var aniamls = ["Dog", "Cat", "Owl", "Llama", "Goat", "chinchilla"];
+    var animals = ["Dog", "Cat", "Owl", "Llama", "Goat", "chinchilla"];
 
-//once document has been loaded, do the following:
 
-//loop thru array items and make them into buttons 
+    for (var i = 0; i < animals.length; i++) {
+        //loop thru array items and make them into buttons 
 
-//I think we'd have to also add the val attribute as well 
+        console.log(animals[i]);  
+        //add them to div   
+        $("#button-holder").append(animals[i]);
 
+        //add the data-attribute
+
+        //make it a clickable button 
+        
+
+    }
+
+    
+   
+});
 
 //user clicks on button, call API to return 10 gifs 
 
