@@ -15,14 +15,40 @@ $(document).ready(function() {
 
     for (var i = 0; i < animals.length; i++) {
         //loop thru array items and make them into buttons 
-
+        //console logging for testing purposes
         console.log(animals[i]);  
-        //add them to div   
-        $("#button-holder").append(animals[i]);
+      
 
-        //add the data-attribute
+        
 
-        //make it a clickable button 
+        //On click event for ALL button elements 
+
+        $("button").on("click", function() {
+            //test on click 
+            console.log("I've been clicked!");
+
+            // get the exact button that was clicked
+            var animal = $(this).attr("data-animal");
+
+            //setting up query URL to search Giphy
+            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+            animal + "&api_key=RxCNYrr7YzOrNwbdhKAnXk4zUEIBMdPJ&limit=10";
+
+            //start AJAX GET Req 
+
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            })
+            
+            //after data is back from API 
+
+            .done(function(response) {
+                //storing an array of results in var called results
+                var results = response.data;
+            })
+
+        })
         
 
     }
