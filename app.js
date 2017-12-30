@@ -46,9 +46,38 @@ $(document).ready(function() {
             .done(function(response) {
                 //storing an array of results in var called results
                 var results = response.data;
-            })
 
-        })
+                //loop thru each result 
+                for (var i = 0; i < results.length; i++) {
+                    //we only want g and pg rated gifs
+                    if(results[i].rating !== "r" && results[i].rating !="pg-13") {
+                        //make a div 
+                        var gifDiv = $("<div class='item'>");
+
+                        //saving result items rating (bc we append this later)
+                        var rating = results[i].rating;
+
+                        //create a p tag for the rating 
+                        var p = $("<p>").text("Rating: " + rating);
+
+                        //create img tag for gif 
+                        var animalImage = $("<img>");
+
+                        animalImage.attr("src", results[i].images.fixed_height.url);
+
+                        //display img tag and p to gifDiv 
+                        gifDiv.append(p);
+                        gifDiv.append(animalImage);
+
+                        //pre-pending gifs to "gifs-appear-here" div
+                        $("#gifs-appear-here").prepend(gifDiv);
+            
+
+                    }
+                }
+            });
+
+        });
         
 
     }
@@ -58,6 +87,9 @@ $(document).ready(function() {
 });
 
 //user clicks on button, call API to return 10 gifs 
+
+//ok so it displays the same 5 gifs twice - that's odd 
+
 
 //display the gif image 
 //display the gif rating 
