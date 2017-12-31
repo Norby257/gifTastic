@@ -17,7 +17,7 @@ $(document).ready(function() {
         //loop thru array items and make them into buttons 
         //console logging for testing purposes
         console.log(topics[i]);  
-      
+    };
 
         
 
@@ -62,9 +62,9 @@ $(document).ready(function() {
 
                         //create img tag for gif 
                         var animalImage = $("<img>");
-                          //the gif that is displayed is static  - grabbing the correct URL
-                          ///played around with a past class activity and saw that the thing i need is this(see below comment):
-                         //fixed_height_still
+                          //the gif that is displayed is static  - needs to be fixed_height_still
+                        
+                         //
 
                         animalImage.attr("src", results[i].images.fixed_height_still.url);
 
@@ -76,17 +76,30 @@ $(document).ready(function() {
                         $("#gifs-appear-here").prepend(gifDiv);
 
 
-                        //but on click, they change to animated 
-            
+                      
 
                     }
                 }
             });
 
-        });
-        
+            //end AJAX req
 
-    }
+        });
+
+        //end button function 
+        //start click function on img 
+
+        $("img").on("click", function() {
+            //test it works 
+            console.log("yay you clicked the picture"); 
+            
+            animalImage.attr("src", results[i].images.fixed_height.url);
+            
+            
+
+        });
+
+    
 
     
    
