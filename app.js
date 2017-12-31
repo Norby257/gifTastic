@@ -10,13 +10,13 @@ $(document).ready(function() {
     console.log("I'm reeaaady!")
     // setting up array of animals 
 
-    var animals = ["Dog", "Cat", "Owl", "Llama", "Goat", "chinchilla"];
+    var topics = ["Dog", "Cat", "Owl", "Llama", "Goat", "chinchilla"];
 
 
-    for (var i = 0; i < animals.length; i++) {
+    for (var i = 0; i < topics.length; i++) {
         //loop thru array items and make them into buttons 
         //console logging for testing purposes
-        console.log(animals[i]);  
+        console.log(topics[i]);  
       
 
         
@@ -62,8 +62,11 @@ $(document).ready(function() {
 
                         //create img tag for gif 
                         var animalImage = $("<img>");
+                          //the gif that is displayed is static  - grabbing the correct URL
+                          ///played around with a past class activity and saw that the thing i need is this(see below comment):
+                         //fixed_height_still
 
-                        animalImage.attr("src", results[i].images.fixed_height.url);
+                        animalImage.attr("src", results[i].images.fixed_height_still.url);
 
                         //display img tag and p to gifDiv 
                         gifDiv.append(p);
@@ -71,6 +74,9 @@ $(document).ready(function() {
 
                         //pre-pending gifs to "gifs-appear-here" div
                         $("#gifs-appear-here").prepend(gifDiv);
+
+
+                        //but on click, they change to animated 
             
 
                     }
