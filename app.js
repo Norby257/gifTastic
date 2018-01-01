@@ -10,14 +10,25 @@ $(document).ready(function() {
     console.log("I'm reeaaady!")
     // setting up array of animals 
 
-    var topics = ["Dog", "Cat", "Owl", "Llama", "Goat", "chinchilla"];
+    var topics = ["Dog", "Cat", "Owl", "Llama", "Goat"];
 
 
     for (var i = 0; i < topics.length; i++) {
         //loop thru array items and make them into buttons 
         //console logging for testing purposes
         console.log(topics[i]);  
+        //append a button for each element in array to the button holder div 
+        $("#button-holder").append("<button>");
+        
+        //I need to put a unique label on each button, not the same name for all of them 
+
+                //add data value/attribute of "animal" to each button
+                //use .data method here 
+
+        
     };
+
+    //end for loop 
 
         
 
@@ -87,7 +98,7 @@ $(document).ready(function() {
         });
 
         //end button function 
-        //start click function on img 
+        //start click function on img -pause and start gif
 
         $("img").on("click", function() {
             //test it works 
@@ -98,6 +109,11 @@ $(document).ready(function() {
             
 
         });
+
+        //end click function for paugse and start gif 
+
+
+        //function that takes user input, appends to array, and makes a button (that can be clicked)
 
     
 
