@@ -18,8 +18,11 @@ $(document).ready(function() {
         //console logging for testing purposes
         console.log(topics[i]);  
         //append a button for each element in array to the button holder div 
-        $("#button-holder").append("<button>");
-        
+       var a = $("<button>");
+       a.addClass("topic");
+       a.attr("data-animal", topics[i]);
+       a.text(topics[i]);
+       $("#button-holder").append(a);
         //I need to put a unique label on each button, not the same name for all of them 
 
                 //add data value/attribute of "animal" to each button
