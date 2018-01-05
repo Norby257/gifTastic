@@ -13,6 +13,7 @@ $(document).ready(function() {
     var topics = ["Dog", "Cat", "Owl", "Llama", "Goat"];
 
 
+    //this for loop can be refactored into a function 
     for (var i = 0; i < topics.length; i++) {
         //loop thru array items and make them into buttons 
         //console logging for testing purposes
@@ -23,17 +24,21 @@ $(document).ready(function() {
        a.attr("data-animal", topics[i]);
        a.text(topics[i]);
        $("#button-holder").append(a);
-        //I need to put a unique label on each button, not the same name for all of them 
-
-                //add data value/attribute of "animal" to each button
-                //use .data method here 
-
-        
+ 
     };
 
-    //end for loop 
+        //end for loop 
+    //add a new animal to the array when add animal button is clicked
+    $("#add-animal").on("click", function(event) {
 
+        event.preventDefault();
         
+        var animal = $("#animal-input").val();
+        topics.push(animal);
+
+        makeButton();
+
+});
 
         //On click event for ALL button elements 
 
@@ -60,6 +65,7 @@ $(document).ready(function() {
             .done(function(response) {
                 //storing an array of results in var called results
                 var results = response.data;
+                console.log(response.data);
 
                 //loop thru each result 
                 for (var i = 0; i < results.length; i++) {
@@ -76,11 +82,20 @@ $(document).ready(function() {
 
                         //create img tag for gif 
                         var animalImage = $("<img>");
+                        //add attr to  image tag  - I think that;s what needs to happen - not the animal image 
+                        //what attributes am i adding - ok I'll need to add still, animate?
+                        //i did the below and won't show the images --so let's fix this and then see what else we can try for it 
+
+                        
+                        // $("img").attr(still = "results[i].images.fixed_height_still.url");
+                        // $("img").attr(animate = "results[i].images.fixed_heighturl");
+                        // $("img").attr("data-animate" = "src", results[i].images.fixed_height.url);
+                        // $("img").addClass("gif");
+
                           //the gif that is displayed is static  - needs to be fixed_height_still
                         
-                         //
-
-                        animalImage.attr("src", results[i].images.fixed_height_still.url);
+                         
+                        // animalImage.attr("src", results[i].images.fixed_height_still.url);
 
                         //display img tag and p to gifDiv 
                         gifDiv.append(p);
@@ -102,27 +117,21 @@ $(document).ready(function() {
 
         //end button function 
         //start click function on img -pause and start gif
-
-        $("img").on("click", function() {
-            //test it works 
-            console.log("yay you clicked the picture"); 
-            
-            animalImage.attr("src", results[i].images.fixed_height.url);
-            
-            
-
+        //ok as we talked about in class - the window object needs to have the on click
+    
         });
 
         //end click function for paugse and start gif 
 
 
-        //function that takes user input, appends to array, and makes a button (that can be clicked)
 
     
 
     
    
-});
+// });
+
+//misc pseudocode 
 
 //user clicks on button, call API to return 10 gifs 
 
