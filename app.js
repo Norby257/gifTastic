@@ -88,8 +88,20 @@ $(document).ready(function() {
                          //commenting out below line so i don't break it
                         animalImage.attr("src", results[i].images.original.url);
                         animalImage.attr("data-still", "data-animate", "data-state");
-
+                        //and then, we need to set up an if condition to check data state and then change it 
+                        //may have to use concatenation - easier than doing two ajax requests 
                         // animalImage.attr("src", results[i].images.fixed_height_still.url);
+                        //find a class to add this even listener to 
+                        $(".class-name").on("click", function () {
+                            if (state === "still") {
+                                $(this).attr("src", $(this).attr("data-animate"));
+                                $(this).attr("data-state", "animate");
+                              } else {
+                                $(this).attr("src", $(this).attr("data-still"));
+                                $(this).attr("data-state", "still");
+                              }
+                        });
+                      
 
                         //display img tag and p to gifDiv 
                         gifDiv.append(p);
