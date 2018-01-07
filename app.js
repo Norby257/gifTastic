@@ -36,6 +36,21 @@ $(document).ready(function() {
 
     //end for loop 
 
+    //submit event handler --thinking this should be a function too?
+    $('form').on('submit', function(event) {
+        event.preventDefault();
+        console.log('submit button has been clicked');
+
+        var b = $("<button>");
+        //get user data and store in a variable 
+        var b = $("#animal-input").val().trim();
+        console.log(b);
+        //add this variable to the array 
+        topics.push(b);
+        //testing to make sure that this is added to array 
+        console.log(topics);
+    });
+
         
 
         //On click event for ALL button elements 
@@ -92,15 +107,15 @@ $(document).ready(function() {
                         //may have to use concatenation - easier than doing two ajax requests 
                         // animalImage.attr("src", results[i].images.fixed_height_still.url);
                         //find a class to add this even listener to 
-                        $(".class-name").on("click", function () {
-                            if (state === "still") {
-                                $(this).attr("src", $(this).attr("data-animate"));
-                                $(this).attr("data-state", "animate");
-                              } else {
-                                $(this).attr("src", $(this).attr("data-still"));
-                                $(this).attr("data-state", "still");
-                              }
-                        });
+                        // $(".class-name").on("click", function () {
+                        //     if (state === "still") {
+                        //         $(this).attr("src", $(this).attr("data-animate"));
+                        //         $(this).attr("data-state", "animate");
+                        //       } else {
+                        //         $(this).attr("src", $(this).attr("data-still"));
+                        //         $(this).attr("data-state", "still");
+                        //       }
+                        // });
                       
 
                         //display img tag and p to gifDiv 
@@ -134,7 +149,7 @@ $(document).ready(function() {
 
         });
 
-        //end click function for paugse and start gif 
+        //end click function for pause and start gif 
 
 
 
