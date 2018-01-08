@@ -15,6 +15,10 @@ $(document).ready(function() {
 //this should be a function that can be called when the submit button is clicked 
         //function that takes user input, appends to array, and makes a button (that can be clicked)
 
+function makeButton() {  
+    //prevent repeat buttons
+    $("#button-holder").empty();     
+
     for (var i = 0; i < topics.length; i++) {
         //loop thru array items and make them into buttons 
         //console logging for testing purposes
@@ -28,28 +32,31 @@ $(document).ready(function() {
        //append the text to the buttons 
        a.text(topics[i]);
        $("#button-holder").append(a);
-
-              
-
         
-    };
+    }
+}
 
     //end for loop 
 
-    //submit event handler --thinking this should be a function too?
-    $('form').on('submit', function(event) {
-        event.preventDefault();
-        console.log('submit button has been clicked');
 
-        var b = $("<button>");
+    //function handles event where add animal / submit is clicked
+    $('#add-animal').on('click', function(event) {
+        event.preventDefault();
+
+        console.log('submit button has been clicked');
         //get user data and store in a variable 
-        var b = $("#animal-input").val().trim();
-        console.log(b);
+        var topic = $("#animal-input").val().trim();
+        console.log(topic);
         //add this variable to the array 
-        topics.push(b);
+        topics.push(topic);
         //testing to make sure that this is added to array 
-        console.log(topics);
+        console.log(topics);      
+        makeButton();  
     });
+    
+    //now we have to make sure it's made into a button 
+    //see the "add a movie bro" activity 
+    makeButton();
 
         
 
@@ -107,6 +114,8 @@ $(document).ready(function() {
                         //may have to use concatenation - easier than doing two ajax requests 
                         // animalImage.attr("src", results[i].images.fixed_height_still.url);
                         //find a class to add this even listener to 
+
+
                         // $(".class-name").on("click", function () {
                         //     if (state === "still") {
                         //         $(this).attr("src", $(this).attr("data-animate"));
@@ -116,6 +125,11 @@ $(document).ready(function() {
                         //         $(this).attr("data-state", "still");
                         //       }
                         // });
+
+                        //try this tomorrow 
+
+                        //if state is animated, then add _s to request url above so it is still 
+                        
                       
 
                         //display img tag and p to gifDiv 
@@ -159,6 +173,5 @@ $(document).ready(function() {
    
 });
 
-//form when they submit an animal --see the Jquery tutorial on code school for this -- 
 
 
