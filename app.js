@@ -8,18 +8,21 @@ console.log("we are linked!");
 
 $(document).ready(function() {
     console.log("I'm reeaaady!")
-    // setting up array of animals 
+
+
+    // setting up initial  array of animals 
 
     var topics = ["Dog", "Cat", "Owl", "Llama", "Goat"];
 
-//this should be a function that can be called when the submit button is clicked 
-        //function that takes user input, appends to array, and makes a button (that can be clicked)
+//functions and events 
 
+//create initial buttons 
 function makeButton() {  
-    //prevent repeat buttons
+    //prevent appending duplicate buttons 
     $("#button-holder").empty();     
 
     for (var i = 0; i < topics.length; i++) {
+
         //loop thru array items and make them into buttons 
         //console logging for testing purposes
         console.log(topics[i]);  
@@ -39,15 +42,20 @@ function makeButton() {
     //end for loop 
 
 
-    //function handles event where add animal / submit is clicked
+    //event listener for when submit button is clicked 
     $('#add-animal').on('click', function(event) {
+        //prevent page refreshing 
         event.preventDefault();
-
+        //test button
         console.log('submit button has been clicked');
         //get user data and store in a variable 
         var topic = $("#animal-input").val().trim();
+
+        //log to console to confirm value 
+
         console.log(topic);
         //add this variable to the array 
+
         topics.push(topic);
         //testing to make sure that this is added to array 
         console.log(topics);      
@@ -61,6 +69,8 @@ function makeButton() {
         
 
         //On click event for ALL button elements 
+         //user clicks on button, call API to return 10 gifs 
+
 
         $("button").on("click", function() {
             //test on click 
@@ -72,7 +82,6 @@ function makeButton() {
             //setting up query URL to search Giphy
             var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
             animal + "&api_key=RxCNYrr7YzOrNwbdhKAnXk4zUEIBMdPJ&limit=10";
-            //user clicks on button, call API to return 10 gifs 
 
             //start AJAX GET Req 
 
@@ -86,6 +95,7 @@ function makeButton() {
             .done(function(response) {
                 //storing an array of results in var called results
                 var results = response.data;
+                console.log(results);
                 
 
                 //start for loop 
@@ -103,36 +113,18 @@ function makeButton() {
 
                         //create <img> for gif 
                         var animalImage = $("<img>");
+
+                        //add class 'gif' to each image tag
+                        animalImage.addClass("gif");
                          
                          ///fix the tags in the html one --as per pausing gifs assignment 
 
                          //and then grab the actual gif image, then make an event listener that swaps out the state the still images have _s -- try original 
                          //commenting out below line so i don't break it
                         animalImage.attr("src", results[i].images.original.url);
-                        animalImage.attr("data-still", "data-animate", "data-state");
-                        //and then, we need to set up an if condition to check data state and then change it 
-                        //may have to use concatenation - easier than doing two ajax requests 
-                        // animalImage.attr("src", results[i].images.fixed_height_still.url);
-                        //find a class to add this even listener to 
-
-
-                        // $(".class-name").on("click", function () {
-                        //     if (state === "still") {
-                        //         $(this).attr("src", $(this).attr("data-animate"));
-                        //         $(this).attr("data-state", "animate");
-                        //       } else {
-                        //         $(this).attr("src", $(this).attr("data-still"));
-                        //         $(this).attr("data-state", "still");
-                        //       }
-                        // });
-
-                        //try this tomorrow 
-
-                        //if state is animated, then add _s to request url above so it is still 
+                        // animalImage.attr("data-still", "data-animate", "data-state");
+                        console.log(animalImage);
                         
-                      
-
-                        //display img tag and p to gifDiv 
                         gifDiv.append(p);
                         gifDiv.append(animalImage);
 
@@ -140,22 +132,32 @@ function makeButton() {
                         $("#gifs-appear-here").prepend(gifDiv);
 
 
-                      
-
                     }
+                    
                 }
             });
 
             //end AJAX req
+            
 
         });
+        //end button function
+    
 
-        //end button function 
-        //start click function on img -pause and start gif
+        //start click function on img.gif -pause and start gif
 
-        $("img").on("click", function() {
+        $(".gif").on("click", function() {
             //test it works  --also, let's use the $this keyword so that way we can get the exact image... 
             console.log("yay you clicked the picture"); 
+            var state = $(this).attr("data-state");
+            //check state of image 
+            //if state is still, animate it. 
+            if( state === "still") {
+                $.(this).attr()
+            } else {
+                
+            }
+            //otherwise if image is animated, pause it 
             
             // animalImage.attr("src", results[i].images.fixed_height.url);
             
