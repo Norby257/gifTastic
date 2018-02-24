@@ -1,10 +1,10 @@
 // pseudo code
 
-//link documents
+//  link documents
 
 console.log("we are linked!");
 
-//get document ready
+//  get document ready
 
 $(document).ready(function() {
   console.log("I'm reeaaady!");
@@ -13,9 +13,10 @@ $(document).ready(function() {
 
   var topics = ["Dog", "Cat", "Owl", "Llama", "Goat"];
 
-  //functions and events
+  //    functions and events
 
-  //create initial buttons
+  //    create initial buttons
+  
   function makeButton() {
     //prevent appending duplicate buttons
     $("#button-holder").empty();
@@ -36,9 +37,9 @@ $(document).ready(function() {
     }
   }
 
-  //end for loop
+  //    end for loop
 
-  //event listener for when submit button is clicked
+  //    event listener for when submit button is clicked
   $("#add-animal").on("click", function(event) {
     //prevent page refreshing
     event.preventDefault();
@@ -67,7 +68,7 @@ $(document).ready(function() {
   //On click event for ALL button elements
   //user clicks on button, call API to return 10 gifs
 
-  $("button").on("click", function() {
+  $(document).on("click", "button", function() {
     //test on click
     console.log("I've been clicked!");
 
