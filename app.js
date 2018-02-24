@@ -108,8 +108,18 @@ $(document).ready(function() {
             //display gif rating by making a <p>
             var p = $("<p>").text("Rating: " + rating);
 
+            //  get data for both animated and still gifs, store in var 
+            var animated = results[i].images.fixed_height.url;
+
+            var still = results[i].images.fixed_height_still.url;
+
             //create <img> for gif
             var animalImage = $("<img>");
+            animalImage.attr("src", still);
+            animalImage.attr("data-still", still);
+            animalImage.attr("data-animate", animated);
+            animalImage.attr("data-state", "still");
+            animalImage.addClass("animal-image");
 
             //add class 'gif' to each image tag
             animalImage.addClass("gif");
@@ -118,7 +128,6 @@ $(document).ready(function() {
 
             //and then grab the actual gif image, then make an event listener that swaps out the state the still images have _s -- try original
             //commenting out below line so i don't break it
-            animalImage.attr("src", results[i].images.original.url);
             // animalImage.attr("data-still", "data-animate", "data-state");
             console.log(animalImage);
 
@@ -138,23 +147,19 @@ $(document).ready(function() {
   //start click function on img.gif -pause and start gif
   //have two versions and just alternate them?
 
-  $(".gif").on("click", function() {
-    //test it works  --also, let's use the $this keyword so that way we can get the exact image...
-    $(this);
+  $(document).on("click", ".animal-image", function() {
     console.log("yay you clicked the picture");
-    var state;
-    if (results[i].images.original.url) {
+    var state = $(this).attr("data-state");
+    
+    if (state ==="still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
     }
-    //check state of image
-    //if state is still, animate it.
-    if (state === "still") {
-      $(this).attr("animate");
-    } else if (state === "animate") {
-      $(this).attr("still");
+    else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
     }
-    //otherwise if image is animated, pause it
-
-    // animalImage.attr("src", results[i].images.fixed_height.url);
+   
   });
 
   //end click function for pause and start gif
