@@ -23,11 +23,11 @@
 
 <body>
     <!-- bootstrap container -->
-    <div class="container">
+    <!-- <div class="container"> -->
 
    
         <!-- remove the navbar-fixed-top to see the animal form and buttons -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -39,14 +39,14 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li class="active"><a href="https://github.com/Norby257" target="_blank"> <i class="fa fa-github-square w3-hover-opacity"></i></a> <span class="sr-only">(current)</span></a></li>
-              <li class="active"><a href="https://linkedin.com/in/nmaddenling" target="_blank"> <i class="fa fa-github-square w3-hover-opacity"></i></a> <span class="sr-only">(current)</span></a></li>
+              <li class="active"><a href="https://linkedin.com/in/nmaddenling" target="_blank"> <i class="fa fa-linkedin w3-hover-opacity"></i></a> <span class="sr-only">(current)</span></a></li>
               
             </ul>
             <form class="navbar-form navbar-left">
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search for a gif!">
               </div>
-              <button type="submit" class="btn btn-info">Submit</button>
+              <button type="submit" class="btn btn-info">Add an animal!</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="https://norby257.github.io/noreenPortfolio/" target="_blank">Portfolio</a></li>
@@ -56,6 +56,8 @@
         </div><!-- /.container-fluid -->
       </nav>
 
+    <!-- this is bootstrap container for the page -->
+    <div class="container-fluid">
     <!-- div for all the buttons -->
     <div id="button-holder"></div>
 
@@ -63,8 +65,9 @@
     <!-- just adding a row for space -->
     <div class="row"></div>
 
+
     <!-- form for adding an animal-->
-    <form id="animal-form">
+    <form id="animal-form" class="col-md-12">
         <label for="animal-input">Add a topic!</label>
         <input type="text" id='animal-input'>
         <br>
@@ -75,7 +78,7 @@
     </form>
 
     <!-- div for gifs to appear -->
-    <div id="gifs-appear-here"></div>
+    <div id="gifs-appear-here" class="col-md-12"></div>
 </div>
 
 <!-- footer --> 
@@ -86,7 +89,7 @@
     </div>
   </nav>
 
-
+</div>
     <!-- link to javascript -->
     <script src="app.js"></script>
 </body>
