@@ -28,7 +28,7 @@ $(document).ready(function() {
       //append a button for each element in array to the button holder div
       var a = $("<button>");
       //add class
-      a.addClass("topic");
+      a.addClass("btn-btn-info topic");
       //add attribute
       a.attr("data-animal", topics[i]);
       //append the text to the buttons

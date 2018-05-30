@@ -5,10 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Giphy Time!</title>
+    <title>gifTastic</title>
     <!-- link to bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
+
+    <!-- link to font awesome --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 
 
     <!-- link to jQuery -->
@@ -19,11 +23,41 @@
 
 <body>
     <!-- bootstrap container -->
-    <div class="container">
+    <!-- <div class="container"> -->
 
-    <!-- header -->
-    <div class="heading">GifTastic</div>
+   
+        <!-- remove the navbar-fixed-top to see the animal form and buttons -->
+    <nav class="navbar navbar-inverse navbar">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+         
+            <a class="navbar-brand" href="#">gifTastic</a>
+          </div>
+      
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="https://github.com/Norby257" target="_blank"> <i class="fa fa-github-square w3-hover-opacity"></i></a> <span class="sr-only">(current)</span></a></li>
+              <li class="active"><a href="https://linkedin.com/in/nmaddenling" target="_blank"> <i class="fa fa-linkedin w3-hover-opacity"></i></a> <span class="sr-only">(current)</span></a></li>
+              
+            </ul>
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search for a gif!">
+              </div>
+              <button type="submit" class="btn btn-info">Add an animal!</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="https://norby257.github.io/noreenPortfolio/" target="_blank">Portfolio</a></li>
+       
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
 
+    <!-- this is bootstrap container for the page -->
+    <div class="container-fluid">
     <!-- div for all the buttons -->
     <div id="button-holder"></div>
 
@@ -31,8 +65,9 @@
     <!-- just adding a row for space -->
     <div class="row"></div>
 
+
     <!-- form for adding an animal-->
-    <form id="animal-form">
+    <form id="animal-form" class="col-md-12">
         <label for="animal-input">Add a topic!</label>
         <input type="text" id='animal-input'>
         <br>
@@ -43,10 +78,18 @@
     </form>
 
     <!-- div for gifs to appear -->
-    <div id="gifs-appear-here"></div>
+    <div id="gifs-appear-here" class="col-md-12"></div>
 </div>
 
+<!-- footer --> 
 
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="container">
+     
+    </div>
+  </nav>
+
+</div>
     <!-- link to javascript -->
     <script src="app.js"></script>
 </body>
