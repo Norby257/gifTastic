@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Giphy Time!</title>
     <!-- link to bootstrap -->
-    <!--link to css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
 
     <!-- link to jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
+
 
 </head>
+
 <body>
+    <!-- bootstrap container -->
+    <div class="container">
 
     <!-- header -->
     <div class="heading">GifTastic</div>
 
-    <!-- div for all the buttons --> 
+    <!-- div for all the buttons -->
     <div id="button-holder"></div>
 
 
@@ -29,18 +34,21 @@
     <!-- form for adding an animal-->
     <form id="animal-form">
         <label for="animal-input">Add a topic!</label>
-        <input type="text" id ='animal-input'> <br>
+        <input type="text" id='animal-input'>
+        <br>
         <!--button for adding a new topic -->
-        <input id="add-animal" type="submit" value="Add an animal!">
+        <input id="add-animal" type="submit" value="Add an animal!" class="btn btn-info">
     </form>
 
     </form>
 
-    <!-- div for gifs to appear --> 
+    <!-- div for gifs to appear -->
     <div id="gifs-appear-here"></div>
+</div>
 
 
     <!-- link to javascript -->
-    <script src ="app.js"></script>
+    <script src="app.js"></script>
 </body>
+
 </html>
