@@ -1,6 +1,5 @@
-// pseudo code
 
-//  link documents
+
 
 console.log("we are linked!");
 
@@ -23,7 +22,6 @@ $(document).ready(function() {
 
     for (var i = 0; i < topics.length; i++) {
       //loop thru array items and make them into buttons
-      //console logging for testing purposes
       console.log(topics[i]);
       //append a button for each element in array to the button holder div
       var a = $("<button>");
@@ -61,8 +59,6 @@ $(document).ready(function() {
     makeButton();
   });
 
-  //now we have to make sure it's made into a button
-  //see the "add a movie bro" activity
   makeButton();
 
   //On click event for ALL button elements
@@ -127,11 +123,6 @@ $(document).ready(function() {
             //add class 'gif' to each image tag
             animalImage.addClass("gif");
 
-            ///fix the tags in the html one --as per pausing gifs assignment
-
-            //and then grab the actual gif image, then make an event listener that swaps out the state the still images have _s -- try original
-            //commenting out below line so i don't break it
-            // animalImage.attr("data-still", "data-animate", "data-state");
             console.log(animalImage);
 
             gifDiv.append(p);
@@ -147,8 +138,6 @@ $(document).ready(function() {
   });
   //end button function
 
-  //start click function on img.gif -pause and start gif
-  //have two versions and just alternate them?
 
   $(document).on("click", ".animal-image", function() {
     console.log("yay you clicked the picture");
