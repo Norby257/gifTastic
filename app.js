@@ -65,8 +65,6 @@ $(document).ready(function() {
   //user clicks on button, call API to return 10 gifs
 
   $(document).on("click", "button", function() {
-
-    //test on click
     console.log("I've been clicked!");
     $("#gifs-appear-here").empty();
     $("button").removeClass("active");
